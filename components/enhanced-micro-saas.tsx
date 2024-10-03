@@ -8,7 +8,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import Link from "next/link"
 import { ChevronDown, CheckCircle, Zap, Shield, BarChart, Users, Menu, X } from 'lucide-react'
 
-export default function Home() {
+export function EnhancedMicroSaas() {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMenuOpen, setIsMenuOpen] = useState(false)
 
@@ -21,14 +21,40 @@ export default function Home() {
   }, [])
 
   const navItems = [
-    { name: 'Features', href: '#features' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'About', href: '#about' },
+    { name: 'Özellikler', href: '#features' },
+    { name: 'Fiyatlandırma', href: '#pricing' },
+    { name: 'Hakkımızda', href: '#about' },
   ]
 
   return (
-    <div className="flex flex-col min-h-screen bg-gradient-to-br from-red-50 to-red-100 dark:from-gray-900 dark:to-red-950">
- 
+    <div className="flex flex-col min-h-screen bg-gradient-to-br from-purple-50 to-indigo-100 dark:from-gray-900 dark:to-indigo-950">
+      <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'bg-white/80 dark:bg-gray-900/80 backdrop-blur-md shadow-md' : 'bg-transparent'}`}>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center">
+              <Link href="/" className="flex items-center space-x-2">
+                <Zap className="w-8 h-8 text-indigo-600 dark:text-indigo-400" />
+                <span className="text-2xl font-bold text-gray-900 dark:text-white">MicroSaaS</span>
+              </Link>
+            </div>
+            <nav className="hidden md:flex items-center space-x-8">
+              {navItems.map((item) => (
+                <Link key={item.name} href={item.href} className="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition-colors">
+                  {item.name}
+                </Link>
+              ))}
+              <Button className="bg-indigo-600 hover:bg-indigo-700 text-white">
+                Ücretsiz Dene
+              </Button>
+            </nav>
+            <div className="md:hidden">
+              <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+                {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
 
       <AnimatePresence>
         {isMenuOpen && (
@@ -40,12 +66,12 @@ export default function Home() {
           >
             <nav className="flex flex-col space-y-4 p-4">
               {navItems.map((item) => (
-                <Link key={item.name} href={item.href} className="text-gray-600 hover:text-red-600 dark:text-gray-300 dark:hover:text-red-400 transition-colors">
+                <Link key={item.name} href={item.href} className="text-gray-600 hover:text-indigo-600 dark:text-gray-300 dark:hover:text-indigo-400 transition-colors">
                   {item.name}
                 </Link>
               ))}
-              <Button className="bg-red-600 hover:bg-red-700 text-white w-full">
-                Try for Free
+              <Button className="bg-indigo-600 hover:bg-indigo-700 text-white w-full">
+                Ücretsiz Dene
               </Button>
             </nav>
           </motion.div>
@@ -61,19 +87,19 @@ export default function Home() {
               transition={{ duration: 0.5 }}
             >
               <h1 className="text-4xl font-extrabold tracking-tight text-gray-900 dark:text-white sm:text-5xl md:text-6xl lg:text-7xl">
-                <span className="block">Enhance Your Images</span>
-                <span className="block text-red-600 dark:text-red-400">with Our Upscaler</span>
+                <span className="block">İşinizi Büyütün</span>
+                <span className="block text-indigo-600 dark:text-indigo-400">MicroSaaS ile</span>
               </h1>
               <p className="mt-6 max-w-lg mx-auto text-xl text-gray-500 dark:text-gray-300 sm:max-w-3xl">
-                Transform your images into stunning high-resolution masterpieces effortlessly. Experience fast, secure, and scalable image enhancement solutions.
+                Küçük işletmenizi büyük başarılara taşıyacak güçlü araçlar. Hızlı, güvenli ve ölçeklenebilir çözümlerle tanışın.
               </p>
               <div className="mt-10 max-w-sm mx-auto sm:max-w-none sm:flex sm:justify-center">
                 <div className="space-y-4 sm:space-y-0 sm:mx-auto sm:inline-grid sm:grid-cols-2 sm:gap-5">
-                  <Button className="w-full bg-red-600 hover:bg-red-700 text-white text-lg py-3">
-                    Upscale Your Image Now
+                  <Button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white text-lg py-3">
+                    Ücretsiz Deneyin
                   </Button>
-                  <Button variant="outline" className="w-full text-red-600 bg-white hover:bg-red-50 border-red-600 text-lg py-3">
-                    More Information
+                  <Button variant="outline" className="w-full text-indigo-600 bg-white hover:bg-indigo-50 border-indigo-600 text-lg py-3">
+                    Daha Fazla Bilgi
                   </Button>
                 </div>
               </div>
@@ -85,21 +111,22 @@ export default function Home() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
-                Key Features of Our Upscaler
+                Öne Çıkan Özellikler
               </h2>
               <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500 dark:text-gray-300">
-                Powerful tools that will elevate your image quality to the next level.
+                İşinizi bir üst seviyeye taşıyacak güçlü araçlar
               </p>
             </div>
+
             <div className="mt-20">
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {[
-                  { icon: <Zap className="w-8 h-8" />, title: "Fast Processing", description: "Upscale your images in seconds." },
-                  { icon: <Shield className="w-8 h-8" />, title: "Secure Uploads", description: "Your images are safe with us." },
-                  { icon: <BarChart className="w-8 h-8" />, title: "High-Quality Results", description: "Experience superior image enhancement." },
-                  { icon: <Users className="w-8 h-8" />, title: "User-Friendly Interface", description: "Easy to use for everyone." },
-                  { icon: <CheckCircle className="w-8 h-8" />, title: "Automatic Enhancements", description: "Let our AI do the work for you." },
-                  { icon: <Zap className="w-8 h-8" />, title: "Multiple Formats", description: "Supports various image formats." },
+                  { icon: <Zap className="w-8 h-8" />, title: "Hızlı Entegrasyon", description: "Dakikalar içinde kurulum yapın ve hemen kullanmaya başlayın." },
+                  { icon: <Shield className="w-8 h-8" />, title: "Güvenli Altyapı", description: "En son güvenlik protokolleri ile verileriniz güvende." },
+                  { icon: <BarChart className="w-8 h-8" />, title: "Detaylı Analizler", description: "Gerçek zamanlı verilerle işinizi daha iyi anlayın." },
+                  { icon: <Users className="w-8 h-8" />, title: "Takım İşbirliği", description: "Ekibinizle sorunsuz çalışın ve verimliliği artırın." },
+                  { icon: <CheckCircle className="w-8 h-8" />, title: "Otomatik Görevler", description: "Tekrarlayan işleri otomatikleştirin, zamandan tasarruf edin." },
+                  { icon: <Zap className="w-8 h-8" />, title: "API Entegrasyonu", description: "Mevcut araçlarınızla kolayca entegre edin." },
                 ].map((feature, index) => (
                   <motion.div
                     key={index}
@@ -109,7 +136,7 @@ export default function Home() {
                   >
                     <Card className="h-full hover:shadow-lg transition-shadow duration-300">
                       <CardHeader>
-                        <div className="w-12 h-12 bg-red-100 dark:bg-red-900 rounded-full flex items-center justify-center text-red-600 dark:text-red-400 mb-4">
+                        <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900 rounded-full flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-4">
                           {feature.icon}
                         </div>
                         <CardTitle className="text-xl font-semibold">{feature.title}</CardTitle>
@@ -125,28 +152,29 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="pricing" className="py-20 bg-red-50 dark:bg-red-900">
+        <section id="pricing" className="py-20 bg-gray-50 dark:bg-gray-900">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
               <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
-                Affordable Pricing Plans
+                Fiyatlandırma Planları
               </h2>
               <p className="mt-4 max-w-2xl mx-auto text-xl text-gray-500 dark:text-gray-300">
-                Choose a plan that fits your needs and start enhancing your images today.
+                Her bütçeye uygun çözümler
               </p>
             </div>
+
             <div className="mt-16">
               <Tabs defaultValue="monthly" className="w-full max-w-3xl mx-auto">
                 <TabsList className="grid w-full grid-cols-2 mb-8">
-                  <TabsTrigger value="monthly">Monthly</TabsTrigger>
-                  <TabsTrigger value="yearly">Yearly</TabsTrigger>
+                  <TabsTrigger value="monthly">Aylık</TabsTrigger>
+                  <TabsTrigger value="yearly">Yıllık</TabsTrigger>
                 </TabsList>
                 <TabsContent value="monthly">
                   <div className="grid gap-8 lg:grid-cols-3">
                     {[
-                      { name: "Starter", price: "$9.99", features: ["1 user", "Basic features", "Email support"] },
-                      { name: "Pro", price: "$29.99", features: ["5 users", "Advanced features", "Priority support"] },
-                      { name: "Enterprise", price: "Custom", features: ["Unlimited users", "Custom solutions", "24/7 support"] },
+                      { name: "Başlangıç", price: "₺99", features: ["5 kullanıcı", "Temel özellikler", "Email desteği"] },
+                      { name: "Pro", price: "₺299", features: ["20 kullanıcı", "Gelişmiş özellikler", "Öncelikli destek", "API erişimi"] },
+                      { name: "Kurumsal", price: "Özel", features: ["Sınırsız kullanıcı", "Özel geliştirmeler", "7/24 destek", "Özel eğitim"] },
                     ].map((plan, index) => (
                       <motion.div
                         key={index}
@@ -154,12 +182,12 @@ export default function Home() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                       >
-                        <Card className={`flex flex-col h-full ${index === 1 ? 'border-red-600 dark:border-red-400 shadow-lg' : ''}`}>
+                        <Card className={`flex flex-col h-full ${index === 1 ? 'border-indigo-600 dark:border-indigo-400 shadow-lg' : ''}`}>
                           <CardHeader>
                             <CardTitle className="text-2xl">{plan.name}</CardTitle>
                             <CardDescription>
                               <span className="text-3xl font-bold">{plan.price}</span>
-                              {plan.price !== "Custom" && <span className="text-gray-500 dark:text-gray-400">/month</span>}
+                              {plan.price !== "Özel" && <span className="text-gray-500 dark:text-gray-400">/ay</span>}
                             </CardDescription>
                           </CardHeader>
                           <CardContent className="flex-grow">
@@ -173,8 +201,8 @@ export default function Home() {
                             </ul>
                           </CardContent>
                           <CardFooter>
-                            <Button className={`w-full ${index === 1 ? 'bg-red-600 hover:bg-red-700 text-white' : ''}`}>
-                              {index === 2 ? 'Contact Us' : 'Choose Plan'}
+                            <Button className={`w-full ${index === 1 ? 'bg-indigo-600 hover:bg-indigo-700 text-white' : ''}`}>
+                              {index === 2 ? 'İletişime Geçin' : 'Planı Seçin'}
                             </Button>
                           </CardFooter>
                         </Card>
@@ -185,9 +213,9 @@ export default function Home() {
                 <TabsContent value="yearly">
                   <div className="grid gap-8 lg:grid-cols-3">
                     {[
-                      { name: "Starter", price: "$99.99", features: ["1 user", "Basic features", "Email support"] },
-                      { name: "Pro", price: "$299.99", features: ["5 users", "Advanced features", "Priority support"] },
-                      { name: "Enterprise", price: "Custom", features: ["Unlimited users", "Custom solutions", "24/7 support"] },
+                      { name: "Başlangıç", price: "₺990", features: ["5 kullanıcı", "Temel özellikler", "Email desteği"] },
+                      { name: "Pro", price: "₺2990", features: ["20 kullanıcı", "Gelişmiş özellikler", "Öncelikli destek", "API erişimi"] },
+                      { name: "Kurumsal", price: "Özel", features: ["Sınırsız kullanıcı", "Özel geliştirmeler", "7/24 destek", "Özel eğitim"] },
                     ].map((plan, index) => (
                       <motion.div
                         key={index}
@@ -195,12 +223,12 @@ export default function Home() {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
                       >
-                        <Card className={`flex flex-col h-full ${index === 1 ? 'border-red-600 dark:border-red-400 shadow-lg' : ''}`}>
+                        <Card className={`flex flex-col h-full ${index === 1 ? 'border-indigo-600 dark:border-indigo-400 shadow-lg' : ''}`}>
                           <CardHeader>
                             <CardTitle className="text-2xl">{plan.name}</CardTitle>
                             <CardDescription>
                               <span className="text-3xl font-bold">{plan.price}</span>
-                              {plan.price !== "Custom" && <span className="text-gray-500 dark:text-gray-400">/year</span>}
+                              {plan.price !== "Özel" && <span className="text-gray-500 dark:text-gray-400">/yıl</span>}
                             </CardDescription>
                           </CardHeader>
                           <CardContent className="flex-grow">
@@ -214,8 +242,8 @@ export default function Home() {
                             </ul>
                           </CardContent>
                           <CardFooter>
-                            <Button className={`w-full ${index === 1 ? 'bg-red-600 hover:bg-red-700 text-white' : ''}`}>
-                              {index === 2 ? 'Contact Us' : 'Choose Plan'}
+                            <Button className={`w-full ${index === 1 ? 'bg-indigo-600 hover:bg-indigo-700 text-white' : ''}`}>
+                              {index === 2 ? 'İletişime Geçin' : 'Planı Seçin'}
                             </Button>
                           </CardFooter>
                         </Card>
@@ -232,30 +260,55 @@ export default function Home() {
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white sm:text-4xl">
-                About Our Upscaler
+                Hakkımızda
               </h2>
               <p className="mt-4 text-xl text-gray-500 dark:text-gray-300">
-                Our image upscaling service was founded to provide high-quality image enhancement solutions. We aim to empower users with the tools they need to transform their images effortlessly.
+                MicroSaaS, işletmelerin dijital dönüşümünü kolaylaştırmak için 2023 yılında kuruldu. Amacımız, küçük ve
+                orta ölçekli işletmelere kurumsal düzeyde çözümler sunmaktır.
               </p>
+            </div>
+
+            <div className="mt-20">
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {[
+                  { title: "Misyonumuz", content: "İşletmelerin büyümesine ve başarıya ulaşmasına yardımcı olmak için yenilikçi ve kullanıcı dostu çözümler sunmak." },
+                  { title: "Vizyonumuz", content: "Dünya çapında küçük ve orta ölçekli işletmelerin tercih ettiği, güvenilir bir SaaS platformu olmak." },
+                  { title: "Değerlerimiz", content: "Müşteri odaklılık, sürekli inovasyon, şeffaflık ve takım çalışması bizim temel değerlerimizdir." },
+                ].map((item, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                  >
+                    <Card className="h-full">
+                      <CardHeader>
+                        <CardTitle className="text-xl font-semibold">{item.title}</CardTitle>
+                      </CardHeader>
+                      <CardContent>
+                        <p className="text-gray-500 dark:text-gray-400">{item.content}</p>
+                      </CardContent>
+                    </Card>
+                  </motion.div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
 
-        <section className="py-20 bg-red-600 dark:bg-red-900">
+        <section className="py-20 bg-indigo-600 dark:bg-indigo-900">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
-                Get Started with Image Upscaling
+                Hemen Başlayın
               </h2>
-              <p className="mt-4 text-xl text-red-100">
-                All the tools you need to enhance your images are at your fingertips. Start your free trial now!
+              <p className="mt-4 text-xl text-indigo-100">
+                İşinizi büyütmek için gereken tüm araçlar elinizin altında. Hemen ücretsiz denemeye başlayın!
               </p>
               <div className="mt-8">
-                <Link href="/upscaler">
                 <Button className="bg-white text-indigo-600 hover:bg-indigo-50 text-lg py-3 px-8">
-                  Try for Free
+                  Ücretsiz Deneyin
                 </Button>
-                </Link>
               </div>
             </div>
           </div>
@@ -266,17 +319,17 @@ export default function Home() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Product</h3>
+              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Ürün</h3>
               <ul className="mt-4 space-y-4">
-                <li><Link href="#" className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Features</Link></li>
-                <li><Link href="#" className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Pricing</Link></li>
-                <li><Link href="#" className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Integrations</Link></li>
+                <li><Link href="#" className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Özellikler</Link></li>
+                <li><Link href="#" className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Fiyatlandırma</Link></li>
+                <li><Link href="#" className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Entegrasyonlar</Link></li>
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Company</h3>
+              <h3 className="text-sm font-semibold text-gray-400 uppercase tracking-wider">Şirket</h3>
               <ul className="mt-4 space-y-4">
-                <li><Link href="#" className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">About Us</Link></li>
+                <li><Link href="#" className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Hakkımızda</Link></li>
                 <li><Link href="#" className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Blog</Link></li>
                 <li><Link href="#" className="text-base text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white">Kariyer</Link></li>
               </ul>
@@ -305,10 +358,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
- 
     </div>
-
-
   )
 }
-
