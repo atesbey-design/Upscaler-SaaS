@@ -4,6 +4,8 @@ import { useState, useRef } from 'react'
 import Image from 'next/image'
 import { Upload, RefreshCw, Image as ImageIcon } from 'lucide-react'
 
+const API_URL = process.env.API_URL || 'http://127.0.0.1:5000'
+
 export default function UpscalerPage() {
   const [resolutionModel, setResolutionModel] = useState('2x')
   const [inputImage, setInputImage] = useState<string | null>(null)
@@ -24,7 +26,7 @@ export default function UpscalerPage() {
     if (inputImage) {
       const scaleFactor = parseInt(resolutionModel.replace('x', ''));
 
-      const response = await fetch('http://127.0.0.1:5000/upscale', {
+      const response = await fetch(`${API_URL}/upscale`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
