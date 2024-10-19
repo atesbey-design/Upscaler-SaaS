@@ -1,52 +1,49 @@
 {
-  "name": "AI Generated NFT",
-  "description": "This is an AI-generated NFT image created dynamically.",
-  
-  "external_url": "https://openseacreatures.io/3", 
-     "displayImageUrl": "https://cdn.leonardo.ai/users/5acfbda6-9537-469b-ae1b-a206f513ffad/generations/952290fb-4761-4534-a798-942fb2348199/Leonardo_Phoenix_Show_a_giant_cosmic_hand_tossing_dice_into_sp_2.jpg",
-                        "imageUrl": "https://cdn.leonardo.ai/users/5acfbda6-9537-469b-ae1b-a206f513ffad/generations/952290fb-4761-4534-a798-942fb2348199/Leonardo_Phoenix_Show_a_giant_cosmic_hand_tossing_dice_into_sp_2.jpg",
-  "image": "https://cdn.leonardo.ai/users/5acfbda6-9537-469b-ae1b-a206f513ffad/generations/952290fb-4761-4534-a798-942fb2348199/Leonardo_Phoenix_Show_a_giant_cosmic_hand_tossing_dice_into_sp_2.jpg", 
-"attributes": [
+  "dna": "5506f78b3857d578242f725691b14c22fc29544f",
+  "name": "#1000",
+  "description": "Curious Addys' Trading Club",
+  "image": "ipfs://QmP9ayW28pbW2V9nYAjEbxv45MTezQpz8S913VbV56nkCg/1000.png",
+  "external_url": "https://curiousaddys.com/addy/1000",
+  "attributes": [
     {
-      "trait_type": "Base", 
-      "value": "Starfish"
-    }, 
+      "trait_type": "Background",
+      "value": "Pastel Blue"
+    },
     {
-      "trait_type": "Eyes", 
-      "value": "Big"
-    }, 
+      "trait_type": "Body",
+      "value": "Original"
+    },
     {
-      "trait_type": "Mouth", 
-      "value": "Surprised"
-    }, 
+      "trait_type": "Expression",
+      "value": "Eyes"
+    },
     {
-      "trait_type": "Level", 
-      "value": 5
-    }, 
+      "trait_type": "Top Tentacle Items",
+      "value": "Pink Umbrella"
+    },
     {
-      "trait_type": "Stamina", 
-      "value": 1.4
-    }, 
+      "trait_type": "Neck Item",
+      "value": "White Ribbon"
+    },
     {
-      "trait_type": "Personality", 
-      "value": "Sad"
-    }, 
+      "trait_type": "Head Item",
+      "value": "Sleeping Mask"
+    },
     {
-      "display_type": "boost_number", 
-      "trait_type": "Aqua Power", 
-      "value": 40
-    }, 
+      "trait_type": "Center Left Tentacle Item",
+      "value": "Calculator"
+    },
     {
-      "display_type": "boost_percentage", 
-      "trait_type": "Stamina Increase", 
-      "value": 10
-    }, 
+      "trait_type": "Center Right Tentacle Item",
+      "value": "Yacht"
+    },
     {
-      "display_type": "number", 
-      "trait_type": "Generation", 
-      "value": 2
+      "trait_type": "Mid Left Tentacle Item",
+      "value": "ETH"
+    },
+    {
+      "trait_type": "Lore",
+      "value": "263"
     }
   ]
-
-  
 }
